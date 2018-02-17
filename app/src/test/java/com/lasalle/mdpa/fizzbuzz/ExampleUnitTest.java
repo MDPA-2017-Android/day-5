@@ -47,18 +47,27 @@ public class ExampleUnitTest {
 
     @Test
     public void checkMultipleThreeIsCorrect() throws Exception {
-        int randomNum = ThreadLocalRandom.current().nextInt(3, 32);
-
-        String result = fizzBuzzManager.testNumber(randomNum * 3);
-        assertEquals("Fizz", result);
+        int finalNum = 0;
+        while(finalNum < 3 || (finalNum%5 == 0))
+        {
+            int randomNum = ThreadLocalRandom.current().nextInt(6, 20);
+            finalNum = randomNum * 3;
+        }
+        String result = fizzBuzzManager.testNumber(finalNum);
+        assertEquals("The number " + finalNum + " should only return Fizz", "Fizz", result);
     }
 
     @Test
     public void checkMultipleFiveIsCorrect() throws Exception {
-        int randomNum = ThreadLocalRandom.current().nextInt(6, 20);
+        int finalNum = 0;
+        while(finalNum < 5 || (finalNum%3 == 0))
+        {
+            int randomNum = ThreadLocalRandom.current().nextInt(6, 20);
+            finalNum = randomNum * 5;
+        }
 
-        String result = fizzBuzzManager.testNumber(randomNum * 5);
-        assertEquals("Buzz", result);
+        String result = fizzBuzzManager.testNumber(finalNum);
+        assertEquals("The number " + finalNum + " should only return Buzz", "Buzz", result);
     }
 
     @Test
