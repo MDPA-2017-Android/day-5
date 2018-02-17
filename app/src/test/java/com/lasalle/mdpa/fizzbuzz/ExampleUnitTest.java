@@ -52,4 +52,12 @@ public class ExampleUnitTest {
         String result = fizzBuzzManager.testNumber(randomNum * 3);
         assertEquals("Fizz", result);
     }
+
+    @Test
+    public void checkMultipleFiveIsCorrect() throws Exception {
+        int randomNum = ThreadLocalRandom.current().nextInt(6, 20);
+
+        String result = fizzBuzzManager.testNumber(randomNum * 5);
+        assertEquals("Buzz", result);
+    }
 }
