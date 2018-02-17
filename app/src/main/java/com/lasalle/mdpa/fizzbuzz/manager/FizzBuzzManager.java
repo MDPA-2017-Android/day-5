@@ -3,14 +3,22 @@ package com.lasalle.mdpa.fizzbuzz.manager;
 public class FizzBuzzManager {
 
     public String testNumber(int i) {
+        String result = new String("");
+
         if(i%3 == 0) {
-            return "Fizz";
+            result += "Fizz";
         }
 
         if(i%5 == 0) {
-            return "Buzz";
+            result += "Buzz";
         }
-        return Integer.toString(i);
+
+        if(result.isEmpty())
+        {
+            result = Integer.toString(i);
+        }
+
+        return result;
     }
 
 }
