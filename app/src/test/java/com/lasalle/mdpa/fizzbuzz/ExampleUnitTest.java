@@ -60,4 +60,11 @@ public class ExampleUnitTest {
         String result = fizzBuzzManager.testNumber(randomNum * 5);
         assertEquals("Buzz", result);
     }
+
+    @Test
+    public void checkFifteenIsCorrect() throws Exception {
+        String result = fizzBuzzManager.testNumber(15);
+        assertEquals("FizzBuzz", result);
+    }
+
 }
