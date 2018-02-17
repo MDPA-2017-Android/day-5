@@ -12,6 +12,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -31,13 +32,8 @@ public class UserLoginViewModelTest {
 
     @Test
     public void checkUserNameIsForwardedProperly() throws Exception {
-
         userLoginViewModel.OnLoginUser("test","123456");
 
-        ArgumentCaptor<String> userParameterCaptor = ArgumentCaptor.forClass(String.class);
-        verify(userManager, times(1)).LoginUser(userParameterCaptor.capture(), anyString());
-
-        assertEquals("test", userParameterCaptor.getValue());
-
+        verify(userManager, times(1)).LoginUser(eq("test"), anyString());
     }
 }
