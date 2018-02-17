@@ -8,7 +8,7 @@ public class FizzBuzzManager {
         {
             return "Fizz";
         }
-        
+
         return Integer.toString(i);
     }
 

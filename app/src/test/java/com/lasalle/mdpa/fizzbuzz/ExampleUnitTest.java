@@ -36,4 +36,10 @@ public class ExampleUnitTest {
         String result = fizzBuzzManager.testNumber(3);
         assertEquals("Fizz", result);
     }
+
+    @Test
+    public void checkFiveIsCorrect() throws Exception {
+        String result = fizzBuzzManager.testNumber(5);
+        assertEquals("Buzz", result);
+    }
 }
