@@ -76,4 +76,12 @@ public class ExampleUnitTest {
         assertEquals("FizzBuzz", result);
     }
 
+    @Test
+    public void checkMultipleThreeAndFiveIsCorrect() throws Exception {
+        int randomNum = ThreadLocalRandom.current().nextInt(1, 20);
+
+        String result = fizzBuzzManager.testNumber(randomNum * 3 * 5);
+        assertEquals("FizzBuzz", result);
+    }
+
 }
