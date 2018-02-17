@@ -31,4 +31,9 @@ public class ExampleUnitTest {
         assertEquals("2", result);
     }
 
+    @Test
+    public void checkThreeIsCorrect() throws Exception {
+        String result = fizzBuzzManager.testNumber(3);
+        assertEquals("Fizz", result);
+    }
 }
