@@ -11,6 +11,6 @@ public class UserLoginViewModel {
     }
 
     public void OnLoginUser(String username, String password) {
-
+        userManager.LoginUser(username, password);
     }
 }
