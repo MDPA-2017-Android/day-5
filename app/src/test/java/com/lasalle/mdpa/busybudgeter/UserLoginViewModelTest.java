@@ -36,4 +36,12 @@ public class UserLoginViewModelTest {
 
         verify(userManager, times(1)).LoginUser(eq("test"), anyString());
     }
+
+    @Test
+    public void checkPasswordForwardedIsMd5Encrypted() throws Exception {
+        userLoginViewModel.OnLoginUser("test","123456");
+        verify(userManager, times(1)).LoginUser(anyString(), eq("e10adc3949ba59abbe56e057f20f883e"));
+    }
+
+    
 }
