@@ -15,16 +15,16 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
 
-    private FizzBuzzManager fizzBuzzManager;
+    private static FizzBuzzManager fizzBuzzManager;
 
     @BeforeClass
-    public void setupManager() throws Exception {
+    public static void setupManager() throws Exception {
         fizzBuzzManager = new FizzBuzzManager();
     }
 
     @Test
     public void checkOneIsCorrect() throws Exception {
-        int result = fizzBuzzManager.TestNumber(1);
-        assertEquals(1, result);
+        String result = fizzBuzzManager.TestNumber(1);
+        assertEquals("1", result);
     }
 }
