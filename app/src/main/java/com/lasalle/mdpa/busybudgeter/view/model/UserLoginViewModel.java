@@ -1,17 +1,16 @@
 package com.lasalle.mdpa.busybudgeter.view.model;
 
+import com.lasalle.mdpa.busybudgeter.manager.UserManager;
+
 public class UserLoginViewModel {
 
-    private String username;
-    private String password;
+    private UserManager userManager;
 
-
-
-    public void setUsername(String username) {
-        this.username = username;
+    public UserLoginViewModel(UserManager userManager) {
+        this.userManager = userManager;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void OnLoginUser(String username, String password) {
+
     }
 }
