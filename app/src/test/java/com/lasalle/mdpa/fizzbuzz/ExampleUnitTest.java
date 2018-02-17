@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import static org.junit.Assert.*;
 
 public class ExampleUnitTest {
@@ -41,5 +43,13 @@ public class ExampleUnitTest {
     public void checkFiveIsCorrect() throws Exception {
         String result = fizzBuzzManager.testNumber(5);
         assertEquals("Buzz", result);
+    }
+
+    @Test
+    public void checkMultipleThreeIsCorrect() throws Exception {
+        int randomNum = ThreadLocalRandom.current().nextInt(3, 32);
+
+        String result = fizzBuzzManager.testNumber(randomNum * 3);
+        assertEquals("Fizz", result);
     }
 }
