@@ -7,7 +7,7 @@ public class FizzBuzzManager {
             return "Fizz";
         }
 
-        if(i == 5) {
+        if(i%5 == 0) {
             return "Buzz";
         }
         return Integer.toString(i);
