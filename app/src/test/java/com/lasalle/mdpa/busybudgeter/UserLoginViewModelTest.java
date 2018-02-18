@@ -48,4 +48,9 @@ public class UserLoginViewModelTest {
         userLoginViewModel.OnLoginUser(null, null);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void checkUserNameAndPasswordAreNotEmpty() throws Exception {
+        userLoginViewModel.OnLoginUser("", "");
+    }
+
 }
