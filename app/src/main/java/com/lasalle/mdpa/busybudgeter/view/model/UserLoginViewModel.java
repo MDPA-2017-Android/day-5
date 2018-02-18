@@ -20,8 +20,8 @@ public class UserLoginViewModel {
     }
 
     public void OnLoginUser(String username, String password) throws IllegalArgumentException {
-        checkArgument(username != null, "Username parameter must not be null");
-        checkArgument(password != null, "Password parameter must not be null");
+        checkArgument(username != null && !username.isEmpty(), "Username parameter must not be null or empty");
+        checkArgument(password != null && !password.isEmpty(), "Password parameter must not be null or empty");
 
         try {
             byte[] bytesOfMessage = password.getBytes("UTF-8");
