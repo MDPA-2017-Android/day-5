@@ -2,6 +2,10 @@ package com.lasalle.mdpa.busybudgeter.view.model;
 
 import android.util.Log;
 
+import com.google.common.base.Charsets;
+import com.google.common.base.Utf8;
+import com.google.common.hash.Hasher;
+import com.google.common.hash.Hashing;
 import com.lasalle.mdpa.busybudgeter.manager.UserManager;
 
 import java.io.UnsupportedEncodingException;
@@ -23,19 +27,8 @@ public class UserLoginViewModel {
         checkArgument(username != null && !username.isEmpty(), "Username parameter must not be null or empty");
         checkArgument(password != null && !password.isEmpty(), "Password parameter must not be null or empty");
 
-        try {
-            byte[] bytesOfMessage = password.getBytes("UTF-8");
-
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] thedigest = md.digest(bytesOfMessage);
-
-            String passwordMd5 = String.format("%032x", new BigInteger(1, thedigest));
-
-            userManager.LoginUser(username, passwordMd5);
-        } catch (Exception e) {
-            Log.e(this.getClass().getName(), "Error login user", e);
-        }
-
-
+        Hasher hasher = Hashing.sha256().newHasher();
+        hasher.putString(password, Charsets.UTF_8);
+        userManager.LoginUser(username, hasher.hash().toString());
     }
 }
