@@ -17,7 +17,8 @@ public class UserLoginViewModel {
         this.userManager = userManager;
     }
 
-    public void OnLoginUser(String username, String password) {
+    public void OnLoginUser(String username, String password) throws IllegalArgumentException {
+
         try {
             byte[] bytesOfMessage = password.getBytes("UTF-8");
 

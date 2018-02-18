@@ -43,5 +43,9 @@ public class UserLoginViewModelTest {
         verify(userManager, times(1)).LoginUser(anyString(), eq("e10adc3949ba59abbe56e057f20f883e"));
     }
 
-    
+    @Test(expected = IllegalArgumentException.class)
+    public void checkUserNameAndPasswordAreNotNull() throws Exception {
+        userLoginViewModel.OnLoginUser(null, null);
+    }
+
 }
