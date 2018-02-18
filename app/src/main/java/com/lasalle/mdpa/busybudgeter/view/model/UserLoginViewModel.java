@@ -9,6 +9,8 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 public class UserLoginViewModel {
 
     private UserManager userManager;
@@ -18,6 +20,8 @@ public class UserLoginViewModel {
     }
 
     public void OnLoginUser(String username, String password) throws IllegalArgumentException {
+        checkArgument(username != null, "Username parameter must not be null");
+        checkArgument(password != null, "Password parameter must not be null");
 
         try {
             byte[] bytesOfMessage = password.getBytes("UTF-8");
@@ -31,5 +35,7 @@ public class UserLoginViewModel {
         } catch (Exception e) {
             Log.e(this.getClass().getName(), "Error login user", e);
         }
+
+
     }
 }
